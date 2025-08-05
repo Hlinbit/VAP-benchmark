@@ -1,0 +1,19 @@
+# kind-config-profiling.yaml
+# recommended kind version: v0.29.0
+kind: Cluster
+apiVersion: kind.x-k8s.io/v1alpha4
+nodes:
+- role: control-plane
+  image: kindest/node:v1.32.5
+  extraPortMappings:
+  - containerPort: 6443
+    hostPort: 6443
+    protocol: TCP
+  kubeadmConfigPatches:
+  - |
+    kind: ClusterConfiguration
+    apiServer:
+      extraArgs:
+        profiling: "true"
+- role: worker
+  image: kindest/node:v1.32.5
