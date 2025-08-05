@@ -13,7 +13,7 @@ This tool benchmarks the performance of Kubernetes ValidatingAdmissionPolicy und
 
 ### Kubernetes Requirements
 
-- Kubernetes cluster with ValidatingAdmissionPolicy feature enabled (Kubernetes 1.26+ with alpha features enabled or 1.28+ with beta features)
+- Kubernetes cluster with ValidatingAdmissionPolicy feature enabled
 - ValidatingAdmissionPolicy feature gate enabled
 - kubeconfig file with sufficient permissions to:
   - Create/delete namespaces
@@ -21,6 +21,12 @@ This tool benchmarks the performance of Kubernetes ValidatingAdmissionPolicy und
   - Manage ValidatingAdmissionPolicies
   - Manage ValidatingAdmissionPolicyBindings
   - Create/delete ConfigMaps in test namespace
+
+## Setup a local kind cluster
+Recommended kind version: 0.29.0
+```
+kind create cluster --config=kind-config/config.yaml 
+```
 
 ## Installation
 
